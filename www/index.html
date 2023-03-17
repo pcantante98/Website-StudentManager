@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
+    <title>Projeto PW - Turmas</title>
+    <link type="text/css" href="/styles/estilos.css" rel="stylesheet">
+
+    <script src="scripts/aluno.js"></script>
+    <script src="scripts/disciplina.js"></script>
+    <script src="scripts/information.js"></script>
+    <script src="scripts/inscricao.js"></script>
+    <script src="scripts/revisao.js"></script>
+    <script src="scripts/turma.js"></script>
+    <script src="/scripts/main.js"></script>
+</head>
+
+<body>
+    <nav>
+        <ul class="menu">
+            <li><a id="menuHome" href="javascript: info.showHome();">Home</a></li>
+            <li><a id="menuTurma" href="javascript: info.showTurmas();">Turmas</a></li>
+            <li><a id="menuInfoTurma" href="javascript: info.showInfoTurma();">Informação da Turma</a></li>
+            <li><a id="menuAluno" href="javascript: info.showAlunos();">Alunos</a></li>
+            <li><a id="menuDisciplina" href="javascript: info.showDisciplinas();">Disciplinas</a></li>
+            <li><a id="menuInscricao" href="javascript: info.showInscricoes();">Inscrições</a></li>
+            <li><a id="menuRevisao" href="javascript: info.showRevisoes();">Revisões</a></li>
+            <li><a id="menuCreditos" href="javascript: info.showCreditos();">Créditos</a></li>
+        </ul>
+    </nav>
+    <main>
+        <article>
+            <h1 id="headerTitle">Home</h1>
+
+            <div class="main_column" id="main_column">
+                <img src=".\images\home_showcase.jpg" alt="Home Showcase">
+            </div>
+
+            <div id="divInformation"></div><br>
+            
+            <div id="listaTurmas">
+                <form action="javascript: info.addTurma();">
+                    <div>
+                        <label for="turmaId">ID Turma</label>
+                        <input id="turmaId" type="number"/>
+                    </div>
+                    <div>
+                        <label for="turmaAno">Ano da Turma</label>
+                        <select id="turmaAno"></select>
+                    </div>
+                    <div>
+                        <label for="turmaNome">Nome da Turma</label>
+                        <input id="turmaNome" type="text" required/>
+                    </div>
+                    <div>
+                        <label for="turmaCurso">Curso da Turma</label>
+                        <input id="turmaCurso" type="text" required/>
+                    </div>
+                    <div>
+                        <label for="turmaDocente">Docente</label>
+                        <input id="turmaDocente" type="text" required/>
+
+                    </div>
+                    <div>
+                        <label for="turmaDocenteEmail">Email do Docente</label>
+                        <input id="turmaDocenteEmail" type="text" required/>
+                    </div>
+
+                    <button type="submit">Adicionar</button>
+                    <button type="button" onclick="info.updateTurma();">Atualizar</button>
+                    <button type="button" onclick="info.deleteTurma();">Apagar</button>
+                    <button type="reset">Limpar</button>
+                </form>
+            </div>
+            <div id="infoTurma">
+                <form action="javascript: info.showInfoTurma();">
+                    <div>
+                        <label for="turmaInfoId">ID Turma</label>
+                        <input id="turmaInfoId" type="number"/>
+                    </div>
+                    <button type="submit">Mostrar turma</button>
+                </form>
+            </div>
+            <div id="listaAlunos">
+                <form action="javascript: info.addAluno();">
+                    <div>
+                        <label for="alunoID">ID Aluno</label>
+                        <input id="alunoID" type="text"/>
+                    </div>
+                    <div>
+                        <label for="nomeAluno">Nome do Aluno</label>
+                        <input id="nomeAluno" type="text" required/>
+                    </div>
+                    <div>
+                        <label for="nascimentoAluno">Data de Nascimento</label>
+                        <input id="nascimentoAluno" type="date" required/>
+                    </div>
+                    <div>
+                        <label for="generoAluno">Género:</label>
+                        <input type="radio" id="masculino" name="generoAluno" value="masculino">
+                        <label for="masculino">Masculino</label> /
+                        <input type="radio" id="feminino" name="generoAluno" value="feminino">
+                        <label for="feminino">Feminino</label>
+                    </div>
+                    <div>
+                        <label for="emailAluno">Email do Aluno</label>
+                        <input id="emailAluno" type="email" required/>
+                    </div>
+                    <div>
+                        <label for="foto">Foto</label>
+                        <input id="foto" type="file"/>
+                    </div>
+                    <button type="submit">Adicionar</button>
+                    <button type="button" onclick="info.updateAluno();">Atualizar</button>
+                    <button type="button" onclick="info.deleteAluno();">Apagar</button>
+                    <button type="reset">Limpar</button>
+                </form>
+            </div>
+            <div id="listaDisciplinas">
+                <form action="javascript: info.addDisciplina();">
+                    <div>
+                        <label for="disciplinaId">ID Disciplina</label>
+                        <input id="disciplinaId" type="text"/>
+                    </div>
+                    <div>
+                        <label for="disciplinaNome">Nome da Disciplina</label>
+                        <input id="disciplinaNome" type="text" required/>
+                    </div>
+                    <div>
+                        <label for="disciplinaDocente">Docente da Disciplina</label>
+                        <input id="disciplinaDocente" type="text" required/>
+                    </div>
+                    <button type="submit">Adicionar</button>
+                    <button type="button" onclick="info.updateDisciplina();">Atualizar</button>
+                    <button type="button" onclick="info.deleteDisciplina();">Apagar</button>
+                    <button type="reset">Limpar</button>
+                </form>
+            </div>
+            <div id="listaInscricoes">
+                <form action="javascript: info.addInscricao();">
+                    <div>
+                        <label for="inscricaoId">ID Inscrição</label>
+                        <input id="inscricaoId" type="text" />
+                    </div>
+                    <div>
+                        <label for="disciplinaInsId">ID da Disciplina</label>
+                        <select id="disciplinaInsId"></select>
+                    </div>
+                    <div>
+                        <label for="alunoInsId">ID do Aluno</label>
+                        <select id="alunoInsId"></select>
+                    </div>
+                    <div>
+                        <label for="nota">Nota</label>
+                        <select id="nota"></select>
+                    </div>
+                    <button type="submit">Adicionar</button>
+                    <button type="button" onclick="info.updateInscricao();">Atualizar</button>
+                    <button type="button" onclick="info.deleteInscricao();">Apagar</button>
+                    <button type="reset">Limpar</button>
+                </form>
+            </div>
+            <div id="listaRevisoes">
+                <form action="javascript: info.addRevisao();">
+                    <div>
+                        <label for="revisaoId">ID da Revisão</label>
+                        <input id="revisaoId" type="text"/>
+                    </div>
+                    <div>
+                        <label for="dataRevisao">Data da Revisão</label>
+                        <input id="dataRevisao" type="date" required/>
+                    </div>
+                    <div>
+                        <label for="disciplinaRevId">ID da Disciplina</label>
+                        <select id="disciplinaRevId"></select>
+                    </div>
+                    <div>
+                        <label for="revisaoAlunoId">ID do Aluno</label>
+                        <select id="revisaoAlunoId"></select>
+                    </div>
+                    <div>
+                        <label for="notaAntesRevisao">Nota antes da Revisão</label>
+                        <select id="notaAntesRevisao"></select>
+                    </div>
+                    <div>
+                        <label for="notaDepoisRevisao">Nota depois da Revisão</label>
+                        <select id="notaDepoisRevisao"></select>
+                    </div>
+                    <div>
+                        <label for="efetivada">Efetivada:</label>
+                        <input type="radio" id="sim" name="efetivada" value="Sim">
+                        <label for="sim">Sim</label> /
+                        <input type="radio" id="nao" name="efetivada" value="Não">
+                        <label for="nao">Não</label>
+                    </div>
+                    <div>
+                        <label for="fechada">Fechada:</label>
+                        <input type="radio" id="sim" name="fechada" value="Sim">
+                        <label for="sim">Sim</label> /
+                        <input type="radio" id="nao" name="fechada" value="Não">
+                        <label for="nao">Não</label>
+                    </div>
+                    
+                    <button type="submit">Adicionar</button>
+                    <button type="button" onclick="info.updateRevisao();">Atualizar</button>
+                    <button type="button" onclick="info.deleteRevisao();">Apagar</button>
+                    <button type="reset">Limpar</button>
+                </form>
+            </div>
+            <div id="creditos">
+                <div class="row">
+                    <div class="column">
+                      <h3>Érica Ferreira</h3>
+                      <h3>200210002</h3>
+                      <img src=".\images\avatar_default.png" alt="Foto Erica"> 
+                    </div>
+                    <div class="column">
+                      <h3>Pedro Cantante</h3>
+                      <h3>190210016</h3>
+                      <img src=".\images\pedro.png" alt="Foto Pedro">
+                    </div>
+                    <div class="column">
+                      <h3>Rafael Oliveira</h3>
+                      <h3>200210017</h3>
+                      <img src=".\images\avatar_default.png" alt="Foto Rafael">
+                    </div>
+                </div>                  
+            </div><hr>
+        </article>
+    </main>
+</body>
+
+</html>
